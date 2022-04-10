@@ -1,0 +1,143 @@
+/* Login page */
+.login_page {
+    max-width: 500px;
+    margin: auto;
+    color: black;
+    padding: 0 15px;
+}
+
+.social button {
+    width: 100%;
+    margin: 10px 0;
+    height: 40px;
+    text-transform: capitalize;
+    letter-spacing: 1.5px;
+}
+
+/* 404 page */
+.text-404 {
+    font-size: 16;
+    color: #8c8c8c;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* oAuth Buttons */
+#google-oauth-button {
+    color: #DB4437;
+    background-color: transparent;
+    font-size: 16px;
+    border: 2px solid #DB4437;
+    font-weight: 500;
+    border-radius: 10px;
+    align-items: center;
+    transition: all ease-in-out 0.25s;
+} 
+
+#google-oauth-button:hover {
+    color: white;
+    background-color: #DB4437;
+    border: 2px solid transparent;
+} 
+
+#facebook-oauth-button {
+    color: #4267B2;
+    background-color: transparent;
+    font-size: 16px;
+    border: 2px solid #4267B2;
+    font-weight: 500;
+    border-radius: 10px;
+    align-items: center;
+    transition: all ease-in-out 0.25s;
+}
+
+#facebook-oauth-button:hover {
+    color: white;
+    background-color: #4267B2;
+    border: 2px solid transparent;
+}
+
+#email-auth-button {
+    color: #808080;
+    background-color: transparent;
+    font-size: 16px;
+    border: 2px solid #808080;
+    font-weight: 500;
+    border-radius: 10px;
+    align-items: center;
+    transition: all ease-in-out 0.25s;
+}
+
+#email-auth-button:hover {
+    color: white;
+    background-color: #808080;
+    border: 2px solid transparent;
+}
+
+.oauth-icon {
+    font-size: 16px;
+    padding: 10px;
+}
+
+/* antd drawers */
+.ant-drawer-mask {
+    background: rgba(0, 0, 0, 0.65) !important;
+}
+
+.ant-drawer-title {
+    font-size: 20px !important;
+}
+
+.login-form-button {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.drawer-footer {
+    float: right;
+    height: auto;
+}
+
+.drawer-footer-btn {
+    margin-right: 10px;
+}
+
+/* account activation page */
+#account-activation-page {
+    display: block;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+#account-activation-text {
+    font-size: 16px;
+    padding-top: 20px;
+    text-align: center;
+    color: #1890ff;
+    font-weight: bold;
+}
+
+/* reset password page */
+.reset-password-page {
+    width: 60%;
+    display: block;
+    margin: auto;
+    text-align: center;
+    padding-top: 10%;
+}
+
+.reset-password-page h2 {
+    padding-bottom: 20px;
+    font-size: 24px;
+}
+
+/* media queries for responsiveness */
+@media screen and (max-width:768px) {
+    #account-activation-text {
+        padding-top: 30%;
+    }
+}

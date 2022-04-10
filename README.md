@@ -1,3 +1,5 @@
+# Matter - a twitter clone
+
 # Server Side
 ## Dependencies
 - bcrypt: Used for specialized hashing, utilized to salt passwords and hash them for security
@@ -73,11 +75,6 @@
 # Running the Application Locally
 1. After setting up the .env file with the proper fields, as shown [above](#.env) go into a folder directory and clone the repo
     - This can be done by running ```git clone https://github.com/jeffersonly/mern-authentication-boilerplate.git``` through the command line within the folder in which you want to project to be placed
-2. ~~Run ```npm install``` within the base directory (after cloning, change directories into the MERN-AUTHENTICATION-BOILERPLATE, or whatever name you decide to change the project name to)~~
-3. ~~Run ```npm install``` within the client directory (change directories into the client folder and install the dependencies)~~
-4. ~~In the base directory you can run ```npm run dev``` which will the backend of the application~~
-5. ~~Change into the client directory and run ```npm start```, this will run the frontend of the application~~
-
 ###
 2. Run ```npm run install``` and then run ```npm run install-all``` in the main project directory (cd into the main directory), this will install all the dependencies needed for the frontend and the backend 
 3. After installations are finished, run ```npm run dev```, this will start up the frontend as well as the backend

@@ -7,6 +7,7 @@ const authAdmin = require('../middleware/authAdmin')
 router.post('/new', auth, PostController.new)
 router.delete('/delete',auth, PostController.delete)
 router.patch('/edit',auth, PostController.edit)
+router.use('/comment', require('./commentRouter'))
 
 router.get('/', PostController.getAllPosts)
 

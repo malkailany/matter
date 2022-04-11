@@ -5,12 +5,10 @@ import axios from "axios";
 import defaultImage from "../utils/default-user-image.png";
 import useWindowDimensions from "../utils/window-dimensions/windowDimensions";
 import { Menu, Button, Drawer } from 'antd';
-import { HomeOutlined, UserOutlined, LoginOutlined, LogoutOutlined, MenuOutlined, ShareAltOutlined } from '@ant-design/icons';
-
+import { HomeOutlined, UserOutlined, LoginOutlined, LogoutOutlined, MenuOutlined, ShareAltOutlined, SettingOutlined } from '@ant-design/icons';
 function Header() {
     const auth = useSelector(state => state.auth);
     const { user, isLogged } = auth;
-
     // Size of width of window
     const { width } = useWindowDimensions();
 
@@ -51,7 +49,10 @@ function Header() {
                 >
                     <Menu.ItemGroup title="User">
                         <Menu.Item key="profile">
-                            <Link to="/profile"><UserOutlined /> Profile</Link>
+                            <Link to={`/profile/${user.username}`}><UserOutlined /> Profile</Link>
+                        </Menu.Item>
+                        <Menu.Item key="settings">
+                            <Link to="/settings"><SettingOutlined /> Settings</Link>
                         </Menu.Item>
                         <Menu.Item key="logout">
                             <Link to="/" onClick={handleLogout}><LogoutOutlined /> Logout</Link>
@@ -105,7 +106,7 @@ function Header() {
                 </Button>
 
                 <Drawer
-                    title={<Link to="/" className="vertical-dropdown-title">MERN Auth BP</Link>}
+                    title={<Link to="/" className="vertical-dropdown-title">Matter</Link>}
                     placement={"top"}
                     onClose={closeVerticalDrawer}
                     visible={visibleVerticalNav}
@@ -115,7 +116,9 @@ function Header() {
                     {
                         isLogged ? 
                             <>
-                                <Link to="/profile" onClick={closeVerticalDrawer} className="vertical-dropdown-link"><UserOutlined /> Profile</Link>
+                                <Link to={`/profile/${user.username}`} onClick={closeVerticalDrawer} className="vertical-dropdown-link"><UserOutlined /> Profile</Link>
+                                <Link to="/settings" onClick={closeVerticalDrawer} className="vertical-dropdown-link"><UserOutlined /> Settings</Link>
+
                                 <Link to="/" onClick={handleLogout} className="vertical-dropdown-link"><LogoutOutlined /> Logout</Link>
                             </>
                         : 

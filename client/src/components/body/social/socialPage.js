@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Posts from './posts'
+import Posts from '../../utils/posts/posts'
 import axios from 'axios'
 import './social.css'
 import CreatePost from './createPost'
@@ -11,7 +11,6 @@ function SocialPage () {
     axios
       .get('/api/post')
       .then(res => {
-        console.log(res)
         setPosts(res.data)
       })
       .catch(err => {
@@ -28,7 +27,7 @@ function SocialPage () {
 
   return (
     <>
-      <div className='container mt-5'>
+      <div className='container my-5'>
         <div className='row justify-content-center'>
           <div className='col-8'>
             <CreatePost onSubmit={updatePosts} />
@@ -36,7 +35,7 @@ function SocialPage () {
           </div>
         </div>
       </div>
-      <div className='container mt-5'>
+      <div className='container my-5'>
         <div className='row justify-content-center'>
           <div className='col-8'>
             <h2>What others are saying</h2>

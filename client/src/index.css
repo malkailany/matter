@@ -44,7 +44,7 @@ button {
 @import url("./components/body/auth/auth.css");
 
 /** Profile **/
-@import url("./components/body/profile/profile.css");
+@import url("./components/body/settings/profile.css");
 
 /** antd **/
 @import '~antd/dist/antd.css';
@@ -54,3 +54,5 @@ button {
 
 /** page dividers **/
 @import url("./components/utils/page-dividers/pagedividers.css");
+/** social **/
+@import url("./components/body/social/social.css");

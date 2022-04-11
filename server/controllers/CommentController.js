@@ -8,8 +8,8 @@ const userController = {
     try {
       const allPosts = await PostModal.find()
         .sort('-createdAt')
-        .populate('publisher comments.publisher', { username: 1, name: 1, avatar: 1 })
-        .select('post createdAt comments')
+        .populate('publisher', { username: 1, name: 1, avatar: 1 })
+        .select('post createdAt')
       res.send(allPosts)
     } catch (error) {
       console.log(error)
@@ -17,26 +17,32 @@ const userController = {
   },
   new: async (req, res) => {
     try {
-      const { post } = req.body
-      const id = req.user.id
-      if (!post) {
-        throw err
+      const { postId, comment } = req.body
+      const id = req.user.id //check expiry
+      console.log({ postId, comment, id })
+      if (!postId || !comment || !id) {
+        throw 'POST, COMMENT OR ID DOES NOT EXIST'
       }
-      const Post = new PostModal({
-        publisher: id,
-        post
-      })
-
-      const savedData = await Post.save()
-      //for each post populate the poster and select the post and timestamp
-      const postInfo = await PostModal.findById(savedData._id)
-        .populate('publisher', { username: 1, name: 1, avatar: 1 })
-        .select('post createdAt')
+      
+      const postInfo = await PostModal.findByIdAndUpdate(
+        postId,
+        {
+          $push: {
+            comments: {
+              publisher: id,
+              comment
+            }
+          }
+        },
+        { new: true }
+      ).populate('publisher', { username: 1, name: 1, avatar: 1 })
       res.json({
         msg: 'got your post from the backend!',
-        post: postInfo
+        comment,
+        user: postInfo.publisher
       })
     } catch (err) {
+      console.error(err)
       return res.status(500).json({ msg: err.message })
     }
   },

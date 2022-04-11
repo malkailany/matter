@@ -22,6 +22,7 @@ const userSchema = new mongoose.Schema({
         index:true,
         sparse:true
     },
+   
     password: {
         type: String,
         required: [true, "Please enter your password"],
@@ -34,6 +35,11 @@ const userSchema = new mongoose.Schema({
     avatar: {
         type: String,
         default: ""
+    },
+    bio: {
+        type: String,
+        default: ""
+
     },
     oauth: {
         type: Boolean,

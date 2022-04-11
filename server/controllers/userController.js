@@ -25,7 +25,7 @@ const userController = {
         return res.status(400).json({ msg: 'Invalid email' })
       }
 
-      const user = await Users.findOne({ $or: [{email}, {username}] })
+      const user = await Users.findOne({ $or: [{ email }, { username }] })
 
       // check to see if a user with the entered email already exists
       if (user) {
@@ -172,14 +172,36 @@ const userController = {
   },
   getUserInfo: async (req, res) => {
     try {
+      console.log(req.user.id)
       const user = await Users.findById(req.user.id).select('-password')
       res.json(user)
     } catch (err) {
       return res.status(500).json({ msg: err.message })
     }
   },
+  getProfile: async (req, res) => {
+    try {
+      const user = await Users.aggregate([
+        { $match: { username: req.params.username } },
+        {
+          $lookup: {
+            from: 'posts',
+            localField: '_id',
+            foreignField: 'publisher',
+            as: 'posts'
+          }
+        }
+      ])
+     
+
+      res.json(user[0])
+    } catch (err) {
+      return res.status(500).json({ msg: err.message })
+    }
+  },
   getAllUsersInfo: async (req, res) => {
     try {
+      console.log('hello')
       const users = await Users.find().select('-password')
       res.json(users)
     } catch (err) {

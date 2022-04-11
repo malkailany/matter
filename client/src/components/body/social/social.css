@@ -5,10 +5,12 @@ textarea.form-control {
     padding: 1.5rem 1.5rem;
 }
 
-.meet-container{
+.meet-container {
     border: solid 1px grey; 
     border-radius: 15px;
     padding: 1rem .5rem;
+}
+.meet-inner-container{
     display: flex;
     flex-direction: row;
     margin-bottom: 1rem;
@@ -55,4 +57,21 @@ textarea.form-control {
     line-height: 1rem;
     padding: 0;
 
+}
+
+.comment-container {
+    display:flex;
+
+}
+
+.comment-data{ 
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.2rem;
+}
+.comment-data p {
+    margin-bottom: 2px;
+}
+.comment-data-name {
+    font-weight: bold;
 }
